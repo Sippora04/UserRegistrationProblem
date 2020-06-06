@@ -53,13 +53,18 @@ fi
 function validatePassword()
 {
 read -p "Enter password: " passWord
-passWordPattern="^((?=.*([[:digit:]])(?=.*[[:upper:]])(?=.*[[:punct:]]{1})[[:alnum:]]{8,}$"
-if [[ $passWord =~ $passWordPattern ]]
+if [[ ${#passWord} -ge 8 && "$passWord" == *[[:upper:]]* && "$passWord" == *[[:digit:]]* && "$passWord" != *[[:space:]]* ]]
 then
-	echo "Valid Password"
+	if [[ $passWord == *[[:punct:]]* ]]
+	then
+		echo "Correct"
+	else
+		echo "Incorrect: Must have 8, atleast 1 uppercase, 1 numeric value and 1 special character. Try again";
+	validatePassWord
+	fi
 else
-	echo "InCorrect: minimum 8 character with Upper Case, Numeric and Special character,try again"
-	validatePassword
+	echo "Try again"
+	validatePassWord
 fi
 }
 
