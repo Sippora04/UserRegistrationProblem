@@ -1,4 +1,4 @@
-echo "Welcome to User Registration Problem"
+echo " Welcome to User Registration Problem"
 
 function FirstName()
 {
