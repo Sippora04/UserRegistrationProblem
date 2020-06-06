@@ -4,7 +4,7 @@ function FirstName()
 {
 read -p "Enter first name: " fname
 if [[ $fname =~ $NamePattern ]]
-then
+	then
    echo "First Name is correct"
 else
    echo "First name should start with Capital and atleast 3 character, try again"
@@ -53,12 +53,12 @@ fi
 function validatePassword()
 {
 read -p "Enter password: " passWord
-passWordPattern="^[[:alnum:]]{8,}$"
+passWordPattern="^[[:upper:]][[:alnum:]]{8,}$"
 if [[ $passWord =~ $passWordPattern ]]
 then
-        echo "Valid Password"
+	echo "Valid Password"
 else
-        echo "Invalid Password: minimum 8 characters need,try again"
+	echo "InCorrect: minimum 8 character with Upper Case,try again"
 	validatePassword
 fi
 }
