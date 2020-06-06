@@ -3,8 +3,7 @@ echo "Welcome to User Registration Problem"
 function FirstName()
 {
 read -p "Enter first name: " fname
-fNamePattern="^[[:upper:]]{1}[[:lower:]]{3,}"
-if [[ $fname =~ $fNamePattern ]]
+if [[ $fname =~ $NamePattern ]]
 then
 	echo "First Name is correct"
 else
@@ -12,4 +11,19 @@ else
 	FirstName
 fi
 }
+
+function LastName()
+{
+read -p "Enter Last name: " lname
+if [[ $lname =~ $NamePattern ]]
+then
+   echo "Last Name is correct"
+else
+   echo "Last name should start with Capital, try again"
+   LastName
+fi
+}
+
+NamePattern="^[[:upper:]]{1}[[:lower:]]{3,}"
 FirstName
+LastName
