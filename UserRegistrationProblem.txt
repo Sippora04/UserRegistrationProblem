@@ -53,7 +53,7 @@ fi
 function validatePassword()
 {
 read -p "Enter password: " passWord
-passWordPattern="^[[:upper:]][[:alnum:]]{8,}$"
+passWordPattern="^((?=.*([[:upper:]])(?=.*[[:digit]]))[[:alnum:]]{8,}$"
 if [[ $passWord =~ $passWordPattern ]]
 then
 	echo "Valid Password"
