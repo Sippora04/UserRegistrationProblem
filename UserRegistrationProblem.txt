@@ -1,1 +1,15 @@
 echo "Welcome to User Registration Problem"
+
+function FirstName()
+{
+read -p "Enter first name: " fname
+fNamePattern="^[[:upper:]]{1}[[:lower:]]{3,}"
+if [[ $fname =~ $fNamePattern ]]
+then
+	echo "First Name is correct"
+else
+	echo "First name should start with Capital, try again"
+	FirstName
+fi
+}
+FirstName
