@@ -5,10 +5,10 @@ function FirstName()
 read -p "Enter first name: " fname
 if [[ $fname =~ $NamePattern ]]
 then
-	echo "First Name is correct"
+   echo "First Name is correct"
 else
-	echo "First name should start with Capital, try again"
-	FirstName
+   echo "First name should start with Capital and atleast 3 character, try again"
+   FirstName
 fi
 }
 
@@ -19,11 +19,25 @@ if [[ $lname =~ $NamePattern ]]
 then
    echo "Last Name is correct"
 else
-   echo "Last name should start with Capital, try again"
+   echo "Last name should start with Capital and atleast 3 character , try again"
    LastName
+fi
+}
+
+function validateEmailId()
+{
+emailPattern='^[a-zA-Z0-9]+([._+-][0-9a-zA-Z]+)*@[a-zA-Z0-9]+.[a-zA-Z]{2,4}([.][a-zA-Z]{2,4})?$'
+read -p "Enter Email Id " email
+if [[ $email =~ $emailPattern ]]
+then
+   echo "Valid email id"
+else
+   echo "Invalid email id, try again"
+   validateEmailId
 fi
 }
 
 NamePattern="^[[:upper:]]{1}[[:lower:]]{3,}"
 FirstName
 LastName
+validateEmailId
